@@ -1,0 +1,1107 @@
+:root {
+    --mainColor: #f6f8fa;
+    --darkBlack: #2d2f31;
+    --darkGrey: #61666b;
+    --grey: #d5d5d5;
+    --lightGrey: #f2f2f2;
+    --yellow: #fecb40;
+    --red: #df113c;
+    --clr: #222327;
+}
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: url('../Noto_Sans_JP/static/NotoSansJP-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.row{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--bs-gutter-x)* -.5);
+    margin-right: calc(var(--bs-gutter-x)* -.5);
+    margin-top: calc(var(--bs-gutter-y)* -1);
+}
+.col-6{
+    flex: 0 0 auto;
+    width: 50%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    color: var(--darkBlack)
+}
+
+.description{
+    font-size: 14px;
+    padding: 5px 0;
+}
+p {
+    font-size: 14px;
+}
+
+.label-cart {
+    position: fixed;
+    color: var(--darkBlack);
+    top: 20px;
+    right: 25px;
+    z-index: 1001;
+    cursor: pointer;
+}
+.label-cart-close{
+    display: none;
+    position: fixed;
+    color: var(--darkBlack);
+    top: 20px;
+    right: 25px;
+    z-index: 1003;
+    cursor: pointer;
+}
+.label-cart .cart-count {
+    /*display: none;*/
+    position: absolute;
+    top: -10px; /* Position the badge above the cart icon */
+    right: -15px; /* Position the badge to the right */
+    background-color: #f54747; /* Badge color, matching your primary color */
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+.label-cart-1 {
+    position: relative;
+    text-align: center;
+    color: var(--darkGrey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.label-cart-1 .cart-count-1 {
+    /*display: block;*/
+    position: absolute;
+    top: -10px; /* Position the badge above the cart icon */
+    right: -15px; /* Position the badge to the right */
+    background-color: #f54747; /* Badge color, matching your primary color */
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+.label-cart-1 >a{
+    text-decoration: none;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    color: var(--darkGrey);
+}
+.label-cart-1:hover {
+    color: var(--red);
+}
+
+.label-cart-1:hover>a {
+    color: var(--red);
+}
+
+
+/* Ensure header stays at the top */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* Adjust background color if needed */
+    padding: 10px 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    z-index: 1000; /* Keeps header above other elements */
+}
+
+/* Container for logo and text */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px; /* Space between logo and text */
+}
+
+.logo-text {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333; /* Adjust color as needed */
+    margin: 0px auto;
+}
+
+            /* Sidebar boshlandi */
+.sidebar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--mainColor);
+    z-index: 1004;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.sidebar-menu {
+    text-align: center;
+    padding: 10px;
+    color: var(--darkGrey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-menu>a {
+    text-decoration: none;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    color: var(--darkGrey);
+}
+
+.sidebar-menu:hover {
+    color: var(--red);
+}
+
+.sidebar-menu:hover>a {
+    color: var(--red);
+}
+
+  /* Sidebar tugadi */
+
+/* Success alert umumiy style */
+.alert {
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Success alert uchun ranglar */
+.alert-success {
+    color: #155724; /* Matn rangi */
+    background-color: #d4edda; /* Fonga rang */
+    border: 1px solid #c3e6cb; /* Chegara */
+}
+
+/* Alert ichidagi link style */
+.alert-success a {
+    color: #0c4128;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Alert ichidagi close tugmasi (optional) */
+.alert .close-btn {
+    font-size: 18px;
+    font-weight: bold;
+    color: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 10px;
+}
+
+
+.dashboard {
+    height: 100%;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.dashboard-banner {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    margin-top: 4rem;
+    padding: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+
+.dashboard-banner>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.banner-promo {
+    position: absolute;
+    color: var(--lightGrey);
+    top: 25%;
+    left: 10%;
+    font-weight: 800;
+}
+
+.banner-promo>h1>span {
+    color: var(--yellow)
+}
+
+
+.dashboard-title {
+    padding: 0 1rem;
+}
+
+.dashboard-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 1rem 0px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    position: sticky;
+    top: 70px;
+    /*background-color: var(--lightGrey);*/
+    z-index: 2;
+}
+.dashboard-menu::-webkit-scrollbar {
+    display: none; /* Scroll panelini yashirish */
+}
+.dashboard-menu>a {
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    min-width: 120px;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    background-color: var(--lightGrey);
+    color: var(--darkBlack);
+    flex-shrink: 0;
+}
+
+.dashboard-menu>a:hover,
+.dashboard-menu>a.active {
+
+    color: var(--lightGrey);
+    background-color: var(--red);
+    font-weight: bold;
+}
+
+
+.category-title{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+        gap: 20px;
+        padding: 0.5rem 1rem 5rem 1rem;
+}
+.title-category{
+    text-align: center;
+}
+
+.dashboard-card {
+    background-color: var(--mainColor);
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+}
+.btn-div{
+    text-align: center;
+    padding: 12px 0px;
+}
+.add-to-cart {
+    --tw-text-opacity: 1;
+    color: rgb(27 197 189 / var(--tw-text-opacity));
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(232 250 249 / var(--tw-bg-opacity));
+    --tw-border-opacity: 1;
+    border-color: rgb(27 197 189 / var(--tw-border-opacity));
+    border-radius: 50px;
+    border: 1px solid;
+}
+
+.dashboard-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+
+.card-image {
+    /*width: 100%;*/
+    display: block;
+    margin: 0 auto;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card-detail{
+    padding: 10px;
+}
+
+.card-detail > h4 > span {
+    float: right;
+}
+.card-details {
+    display: flex;
+    gap: 10px; /* Elementlar orasidagi masofa */
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.card-time {
+    color: var(--darkGrey);
+    font-size: 0.8rem;
+    padding: 10px 0px;
+}
+.card-time > span {
+    margin-right: 10px;
+}
+
+.dashboard-order {
+    width: 340px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--mainColor);
+    z-index: 1002;
+    display: none; /* Initially hidden */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto; /* Enable scrolling */
+}
+
+.dashboard-order>h3 {
+    padding: 10px 0;
+}
+
+.order-adress>h4 {
+    line-height: 2;
+}
+
+
+.order-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 380px;
+    margin-bottom: 1rem;
+}
+
+/* custom scroll */
+.order-wrapper::-webkit-scrollbar {
+    width: 7px;
+}
+
+.order-wrapper::-webkit-scrollbar-track {
+    background-color: var(--lightGrey);
+    border-radius: 20px;
+}
+
+.order-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--darkGrey);
+    border-radius: 20px;
+}
+
+.order-card {
+    display: flex;
+    grid-template-columns: 0.6fr 1fr 0.5fr;
+    padding: 10px 0;
+    gap: 5px;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.order-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.order-detail>input {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border: 2px solid var(--grey);
+    border-radius: 10px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+.order-total {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.total-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.total-amount {
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.option {
+    margin: 10px 0;
+}
+
+.option label {
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.option input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.order-total {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.order-total input[type="text"],
+.order-total input[type="tel"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.order-total input[type="text"]:focus,
+.order-total input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.order-total input[type="text"] {
+    background-color: #f9f9f9;
+}
+
+.order-total input[type="number"] {
+    background-color: #f2f2f2;
+}
+.footer_order{
+    margin-bottom: 8rem;
+}
+
+.divider {
+    width: 100%;
+    border: 1px dashed var(--grey);
+}
+
+.star-rating {
+    direction: rtl; /* To allow the first star to be on the left */
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.star {
+    font-size: 24px; /* Size of the stars */
+    color: #ddd; /* Default color */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.start_input{
+    display: none;
+}
+
+input[type="radio"]:checked ~ .star {
+    color: var(--red); /* Color for selected stars */
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: var(--red); /* Color on hover */
+}
+
+/* Textarea styling */
+.comment-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Button styling */
+.popup-buttons .btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--red); /* Replace with your theme's color */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.popup-buttons .btn:hover {
+    background-color: #ef2020; /* Darken on hover for better UX */
+}
+
+.toggle-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.toggle-btn {
+     padding: 10px;
+     font-size: 14px;
+     border-radius: 5px;
+     border: none;
+     cursor: pointer;
+    color: var(--darkBlack);
+    background-color: var(--lightGrey);
+flex: 1;
+    /*padding: 10px 20px;*/
+    /*margin: 0 5px;*/
+    /*border: none;*/
+    /*background-color: #f47b20; !* Base color *!*/
+    /*color: white;*/
+    /*cursor: pointer;*/
+    transition: background-color 0.3s;
+}
+.toggle-btn:not(:last-child) {
+    margin-right: 10px; /* Add some space between buttons */
+}
+
+.toggle-btn.active {
+    background-color: var(--red);
+    color: white; /* Darker shade for active button */
+}
+
+/*.toggle-btn:hover {*/
+/*    background-color: var(--lightGrey); !* Hover effect *!*/
+/*    color: var(--darkBlack);*/
+/*}*/
+
+
+.order-total > p {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Elementlar orasida bo'sh joyni ta'minlaydi */
+}
+
+.order-total > p > span {
+    font-weight: 600;
+}
+#tax{
+    float: right;
+}
+
+.order-total {
+    margin-top: 1rem; /* Adds space above the total section */
+}
+
+.checkout {
+    margin-top: 1rem; /* Adds space above the checkout button */
+    width: 100%; /* Ensures the button fills the width */
+    height: 40px; /* Fixed height for consistency */
+    text-align: center;
+    background-color: var(--red); /* Check this color */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    color: var(--lightGrey); /* Check this color for contrast */
+    cursor: pointer; /* Changes cursor on hover */
+    display: block; /* Ensure it is a block element */
+}
+
+.checkout:hover {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+#cart {
+    display: block;
+}
+
+#cart:checked~.label-cart {
+    color: var(--darkBlack);
+}
+
+#cart:checked~.label-cart-close {
+    color: var(--darkBlack);
+    display: block;
+}
+
+#cart:checked~.dashboard {
+    padding-right: 350px;
+}
+
+#cart:checked~.dashboard-order {
+    display: block;
+}
+
+#cart:checked~.logo {
+    padding-right: 10px;
+}
+
+.lang{
+    margin: 0px 30px;
+    /*margin-top: 10px;*/
+}
+
+
+@media screen and (max-width: 680px) {
+    .dashboard {
+        padding-right: 0;
+    }
+    .dashboard-order {
+        width: 100%;
+        height: 100%;
+    }
+
+    .dashboard-content {
+        gap: 20px;
+    }
+    .logo {
+        padding: 15px;
+    }
+    .dashboard-banner {
+        height: 200px;
+    }
+    .sidebar-menu {
+        padding: 5px;
+    }
+    .order-wrapper {
+        flex: 1;
+        overflow-y: auto;
+        max-height: 300px;
+        margin-bottom: 1rem;
+    }
+    .language-option img{
+        width: 50px;
+        height: 35px;
+    }
+    .comment-section textarea{
+        margin-top: 0px;
+    }
+    .popup-buttons{
+        margin-top: 15px !important;
+    }
+    #commentPopup{
+        top: 36% !important;
+    }
+    #profilePopup {
+        top: 32% !important;
+    }
+    #settingsPopup {
+        top: 54% !important;
+    }
+
+}
+
+@media screen and (min-width: 681px) and (max-width: 1024px) {
+    .dashboard {
+        padding-right: 0;
+    }
+    .dashboard-content {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+    }
+
+    .logo {
+        padding: 15px 0;
+    }
+
+    .sidebar {
+        height: 50px;
+    }
+    .sidebar-menu {
+        padding: 8px;
+    }
+}
+
+.cart-item-btn {
+    display: flex;
+    flex-direction: column; /* To stack the controls below the details */
+    align-items: flex-start;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column; /* To stack the controls below the details */
+    align-items: flex-start;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Space between details and controls */
+}
+
+.cart-item-img {
+    /*width: 80px;*/
+    height: 50px;
+    margin-right: 20px; /* Space between image and text */
+    border-radius: 5px; /* Optional: makes the image corners rounded */
+}
+
+.cart-item p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.cart-item-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.minus{
+    --tw-text-opacity: 1;
+    color: rgb(246 79 97 / var(--tw-text-opacity));
+    --tw-border-opacity: 1;
+    border:1px solid;
+    border-color: rgb(246 79 97 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 226 229 / var(--tw-bg-opacity));
+    padding: 5px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+.plus{
+    --tw-text-opacity: 1;
+    color: rgb(27 197 189 / var(--tw-text-opacity));
+    --tw-border-opacity: 1;
+    border: 1px solid;
+    border-color: rgb(27 197 189 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(232 250 249 / var(--tw-bg-opacity));
+    padding: 5px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.cart-item button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.cart-item-controls span {
+    --tw-text-opacity: 1;
+    color: rgb(27 197 189 / var(--tw-text-opacity));
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+/* popup starts */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1000;
+  }
+
+  .popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    /*padding: 20px;*/
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
+    display: none;
+  }
+
+  .popup.visible {
+    transform: translateY(0);
+    display: block;
+    /*height: 600px;*/
+  }
+
+  .popup {
+    position: fixed;
+    /*top: 50%;*/
+    /*left: 10%;*/
+    transform: translate(-50%, -50%);
+    /*width: 320px;*/
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: 'Arial', sans-serif;
+}
+
+.popup-content {
+    padding: 20px;
+    /*height: 300px;*/
+}
+#commentPopup{
+    top: 42% ;
+}
+#profilePopup{
+    top: 45%;
+}
+#settingsPopup{
+    top: 55%;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.restaurant-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #4B4B4B;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #9B9B9B;
+}
+
+.divider {
+    border: 1px solid #EDEDED;
+    margin: 15px 0;
+}
+
+.content-details p {
+    margin: 10px 0;
+    color: #6E6E6E;
+    font-size: 14px;
+}
+.content-details > p >i{
+    margin: 0px 15px;
+}
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    margin: 5px 5px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--red);
+    color: white;
+}
+.btn-instagram{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+.btn-instagram:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+.btn-telegram{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 25px;
+    background-color: #0088cc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+.btn-telegram:hover{
+    background-color: #007ab8 !important;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.youtube-button {
+    display: inline-block;
+    background-color: #ff0033;
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.youtube-button:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tiktok-button {
+    display: inline-block;
+    background: #000;
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.tiktok-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #25f4ee, #fe2c55);
+}
+
+.tiktok-button i {
+    color: #fff;
+    text-shadow: 2px 1px #ff3353fc,
+    -1px 0px cyan;
+}
+
+.feedback-btn {
+    background-color: var(--red);
+}
+
+.visit-card-btn {
+    background-color: var(--red);
+}
+
+.btn:hover {
+    background-color: var(--red);
+}
+
+.setting-item {
+    margin: 10px 0;
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.language-option ion-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    color: var(--red); /* Purple color for icons */
+}
+
+.language-option input[type="radio"] {
+    margin-left: auto;
+}
+
+.language-option .checkmark {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #8A2BE2;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.language-option input[type="radio"]:checked + .checkmark {
+    background-color: #8A2BE2;
+}
+
+
+
