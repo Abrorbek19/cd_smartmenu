@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 /*
@@ -16,9 +17,12 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('lang/{lang}', function($lang) {
+    session(['lang' => $lang]) ;
+    return back() ;
+})->name('lang');
+
+Route::get('/',[ViewController::class,'index'])->name('index');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login-post',[AuthController::class,'loginPost'])->name('login-post');
