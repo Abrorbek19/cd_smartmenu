@@ -3,64 +3,71 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
-use App\Http\Requests\StoreClientRequest;
-use App\Http\Requests\UpdateClientRequest;
+use App\Models\Restaurant;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $clients = Client::with(['user', 'restaurant'])->get();
+        return view('admin.client.index', compact('clients'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+
+        $connectedUserIds = Client::pluck('user_id')->toArray();
+        $connectedRestaurantIds = Client::pluck('restaurant_id')->toArray();
+
+        $users = User::whereNotIn('id', $connectedUserIds)->get();
+        $restaurants = Restaurant::whereNotIn('id', $connectedRestaurantIds)->get();
+
+        return view('admin.client.create', compact('users', 'restaurants'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreClientRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'restaurant_id' => 'required|exists:restaurants,id',
+        ]);
+
+        Client::create($request->all());
+
+        return redirect()->route('clients.index')->with('success', 'Client created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Client $client)
     {
-        //
+        return view('admin.client.show', compact('client'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Client $client)
     {
-        //
+
+        $users = User::all();
+        $restaurants = Restaurant::all();
+        return view('admin.client.update', compact('client', 'users', 'restaurants'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateClientRequest $request, Client $client)
+    public function update(Request $request, Client $client)
     {
-        //
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'restaurant_id' => 'required|exists:restaurants,id',
+        ]);
+
+        $client->update($request->all());
+
+        return redirect()->route('clients.index')->with('success', 'Client updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('clients.index')->with('success', 'Client deleted successfully.');
     }
 }
