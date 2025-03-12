@@ -98,50 +98,50 @@
         <div class="header__image">
             <img src="{{asset('assets/images/sahifa2.png')}}" alt="header" />
         </div>
-{{--        @foreach($title->where('position', 'main') as $item)--}}
-{{--            <div class="header__content">--}}
-{{--                <div class="header__tag">--}}
-{{--                    @lang('header.motorcycle')--}}
-{{--                    <img src="{{ asset('assets/images/delivery-bike.png') }}" alt="header tag" />--}}
-{{--                </div>--}}
-{{--                {!! $item->{'title_'.\App::getLocale()} !!}--}}
-{{--                <p class="section__description">--}}
-{{--                    {{ $item->{'description_'.\App::getLocale()} }}--}}
-{{--                </p>--}}
-{{--                <div class="header__btns">--}}
-{{--                    --}}{{--                    <button class="btn"> @lang('header.ulanish')</button>--}}
-{{--                    --}}{{--                    <a href="#">--}}
-{{--                    --}}{{--                        <span><i class="ri-play-fill"></i></span>--}}
-{{--                    --}}{{--                        @lang('header.watch')--}}
-{{--                    --}}{{--                    </a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        @endforeach--}}
+        @foreach($title->where('position', 'main') as $item)
+            <div class="header__content">
+                <div class="header__tag">
+                    @lang('header.motorcycle')
+                    <img src="{{ asset('assets/images/delivery-bike.png') }}" alt="header tag" />
+                </div>
+                {!! $item->{'title_'.\App::getLocale()} !!}
+                <p class="section__description">
+                    {{ $item->{'description_'.\App::getLocale()} }}
+                </p>
+                <div class="header__btns">
+                                        <button class="btn"> @lang('header.ulanish')</button>
+                                        <a href="#">
+                                            <span><i class="ri-play-fill"></i></span>
+                                            @lang('header.watch')
+                                        </a>
+                </div>
+            </div>
+        @endforeach
 
     </div>
 </header>
 
 <section class="section__container service__container" id="service">
-{{--    @foreach($title->where('position', 'offer') as $item)--}}
-{{--        <p class="section__subheader">{!! $item->{'title_'.\App::getLocale()} !!}</p>--}}
-{{--        <h2 class="section__header"> {{ $item->{'description_'.\App::getLocale()} }}</h2>--}}
-{{--    @endforeach--}}
-{{--    <div class="service__grid">--}}
-{{--        @foreach($feature as $fiycha)--}}
-{{--            <div class="service__card">--}}
-{{--                <img src="{{ asset('storage/featuremains/' . $fiycha->icon) }}" alt="service icon" />--}}
-{{--                <h4>{{ $fiycha->{'title_'.\App::getLocale()} }}</h4>--}}
-{{--                <p>{{ $fiycha->{'description_'.\App::getLocale()} }}</p>--}}
-{{--            </div>--}}
-{{--        @endforeach--}}
+    @foreach($title->where('position', 'offer') as $item)
+        <p class="section__subheader">{!! $item->{'title_'.\App::getLocale()} !!}</p>
+        <h2 class="section__header"> {{ $item->{'description_'.\App::getLocale()} }}</h2>
+    @endforeach
+    <div class="service__grid">
+        @foreach($feature as $fiycha)
+            <div class="service__card">
+                <img src="{{ asset('/featuremains/' . $fiycha->icon) }}" alt="service icon" />
+                <h4>{{ $fiycha->{'title_'.\App::getLocale()} }}</h4>
+                <p>{{ $fiycha->{'description_'.\App::getLocale()} }}</p>
+            </div>
+        @endforeach
     </div>
 </section>
 
 <section class="section__container menu__container" id="menu">
-{{--    @foreach($title->where('position', 'client') as $item)--}}
-{{--        <p class="section__subheader">{!! $item->{'title_'.\App::getLocale()} !!}</p>--}}
-{{--        <h2 class="section__header">{{ $item->{'description_'.\App::getLocale()} }}</h2>--}}
-{{--    @endforeach--}}
+    @foreach($title->where('position', 'client') as $item)
+        <p class="section__subheader">{!! $item->{'title_'.\App::getLocale()} !!}</p>
+        <h2 class="section__header">{{ $item->{'description_'.\App::getLocale()} }}</h2>
+    @endforeach
     <!-- Slider main container -->
     <div class="swiper">
         <!-- Additional required wrapper -->
@@ -171,41 +171,41 @@
 </section>
 
 <section class="section__container client__container" id="client">
-{{--    @foreach($title->where('position', 'feedback') as $item)--}}
-{{--        <p class="section__subheader">{!! $item->{'title_'.\App::getLocale()} !!}</p>--}}
-{{--        <h2 class="section__header">{{ $item->{'description_'.\App::getLocale()} }}</h2>--}}
-{{--    @endforeach--}}
+    @foreach($title->where('position', 'feedback') as $item)
+        <p class="section__subheader">{!! $item->{'title_'.\App::getLocale()} !!}</p>
+        <h2 class="section__header">{{ $item->{'description_'.\App::getLocale()} }}</h2>
+    @endforeach
     <div class="swiper">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-{{--            @foreach($testimonial as $people)--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <p class="section__description">--}}
-{{--                        {{ $people->{'description_'.\App::getLocale()} }}--}}
-{{--                    </p>--}}
-{{--                    <div class="client__details">--}}
-{{--                        @if($people->image)--}}
-{{--                            <img src="{{ asset('/storage/testimonial/'. $people->image) }}" alt="Meal Image" width="200px">--}}
-{{--                        @else--}}
-{{--                            <p>Rasm mavjud emas</p>--}}
-{{--                        @endif--}}
-{{--                        <div>--}}
-{{--                            <h4>{{ $people->fullname }}</h4>--}}
-{{--                            <h5>{{ $people->{'role_user_'.\App::getLocale()} }}</h5>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="client__rating">--}}
-{{--                        @for ($i = 1; $i <= 5; $i++)--}}
-{{--                            @if ($i <= $people->star)--}}
-{{--                                <span class="star filled">★</span> <!-- To'ldirilgan yulduz -->--}}
-{{--                            @else--}}
-{{--                                <span class="star">☆</span> <!-- Bo'sh yulduz -->--}}
-{{--                            @endif--}}
-{{--                        @endfor--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            @endforeach--}}
+            @foreach($testimonial as $people)
+                <div class="swiper-slide">
+                    <p class="section__description">
+                        {{ $people->{'description_'.\App::getLocale()} }}
+                    </p>
+                    <div class="client__details">
+                        @if($people->image)
+                            <img src="{{ asset('/storage/testimonial/'. $people->image) }}" alt="Meal Image" width="200px">
+                        @else
+                            <p>Rasm mavjud emas</p>
+                        @endif
+                        <div>
+                            <h4>{{ $people->fullname }}</h4>
+                            <h5>{{ $people->{'role_user_'.\App::getLocale()} }}</h5>
+                        </div>
+                    </div>
+                    <div class="client__rating">
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $people->star)
+                                <span class="star filled">★</span> <!-- To'ldirilgan yulduz -->
+                            @else
+                                <span class="star">☆</span> <!-- Bo'sh yulduz -->
+                            @endif
+                        @endfor
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -216,13 +216,13 @@
             <img src="{{asset('admin/assets/img/1000.png')}}" alt="download" />
         </div>
         <div class="download__content">
-{{--            @foreach($title->where('position', 'design') as $item)--}}
-{{--                <p class="section__subheader">@lang('form.scanner')</p>--}}
-{{--                <h2 class="section__header">{!! $item->{'title_'.\App::getLocale()} !!}</h2>--}}
-{{--                <p class="section__description">--}}
-{{--                    {!!   $item->{'description_'.\App::getLocale()} !!}--}}
-{{--                </p>--}}
-{{--            @endforeach--}}
+            @foreach($title->where('position', 'design') as $item)
+                <p class="section__subheader">@lang('form.scanner')</p>
+                <h2 class="section__header">{!! $item->{'title_'.\App::getLocale()} !!}</h2>
+                <p class="section__description">
+                    {!!   $item->{'description_'.\App::getLocale()} !!}
+                </p>
+            @endforeach
             <div class="download__btn">
                 <a href="#form" class="a_form">
                     <button class="btn">@lang('form.create')! </button>
@@ -234,10 +234,10 @@
 
 <section class="section__container client__container" id="form">
     <div class="client__content">
-{{--        @foreach($title->where('position', 'contact') as $item)--}}
-{{--            <p class="section__subheader">{!! $item->{'title_'.\App::getLocale()} !!}</p>--}}
-{{--            <h2 class="section__header" style="font-size: 1.5rem !important;line-height: 3.5rem !important;"> {!!   $item->{'description_'.\App::getLocale()} !!}</h2>--}}
-{{--        @endforeach--}}
+        @foreach($title->where('position', 'contact') as $item)
+            <p class="section__subheader">{!! $item->{'title_'.\App::getLocale()} !!}</p>
+            <h2 class="section__header" style="font-size: 1.5rem !important;line-height: 3.5rem !important;"> {!!   $item->{'description_'.\App::getLocale()} !!}</h2>
+        @endforeach
         <!-- Yangi form bo'limi -->
         <div class="client__form">
             <form  id="contact123" method="post">

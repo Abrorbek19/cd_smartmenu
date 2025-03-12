@@ -3,8 +3,11 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\FeaturemainController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\TitleemainController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +29,7 @@ Route::get('lang/{lang}', function($lang) {
 })->name('lang');
 
 Route::get('/',[ViewController::class,'index'])->name('index');
+Route::get('/restaran/{id}',[ViewController::class,'menu'])->middleware('counter')->name('menu');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login-post',[AuthController::class,'loginPost'])->name('login-post');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
@@ -35,6 +39,9 @@ Route::middleware(['auth','role:admin'])->prefix('/admin')->group(function () {
     Route::resource("/restaurants", RestaurantController::class);
     Route::resource("/users", UserController::class);
     Route::resource('/clients', ClientController::class);
+    Route::resource('/titlemains', TitleemainController::class);
+    Route::resource('/featuremains', FeaturemainController::class);
+    Route::resource('/testimonial',TestimonialController::class);
     Route::put('/users/{id}/update-password', [UserController::class, 'userPasswordUpdate'])->name('update-password');
 
 });
