@@ -155,6 +155,138 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
 
+  <script type="text/javascript">
+      $('#summernote1').summernote({
+          placeholder: 'Tarif...',
+          tabsize: 2,
+          height: 300,
+          toolbar: [
+              ['style', ['style']],
+              ['font', ['bold', 'underline', 'clear']],
+              ['fontname', ['fontname']],
+              ['fontsize', ['fontsize']],
+              ['height', ['height']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['table', ['table']],
+              ['insert', ['link', 'picture', 'video']],
+              ['view', ['codeview', 'help']],
+          ],
+          fontNames: ['Helvetica', 'Verdana', 'Georgia', 'Arial', 'Times New Roman', 'Arial Black', 'Comic Sans MS', 'Merriweather', 'GT Walsheim Pro'],
+          addDefaultFonts: false,
+          fontSizeUnits: ['px'],
+      })
+  </script>
+  <script type="text/javascript">
+      $('#summernote2').summernote({
+          placeholder: 'Tarif...',
+          tabsize: 2,
+          height: 300,
+          toolbar: [
+              ['style', ['style']],
+              ['font', ['bold', 'underline', 'clear']],
+              ['fontname', ['fontname']],
+              ['fontsize', ['fontsize']],
+              ['height', ['height']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['table', ['table']],
+              ['insert', ['link', 'picture', 'video']],
+              ['view', ['codeview', 'help']],
+          ],
+          fontNames: ['Helvetica', 'Verdana', 'Georgia', 'Arial', 'Times New Roman', 'Arial Black', 'Comic Sans MS', 'Merriweather', 'GT Walsheim Pro'],
+          addDefaultFonts: false,
+          fontSizeUnits: ['px'],
+      })
+  </script>
+  <script type="text/javascript">
+      $('#summernote3').summernote({
+          placeholder: 'Tarif...',
+          tabsize: 2,
+          height: 300,
+          toolbar: [
+              ['style', ['style']],
+              ['font', ['bold', 'underline', 'clear']],
+              ['fontname', ['fontname']],
+              ['fontsize', ['fontsize']],
+              ['height', ['height']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['table', ['table']],
+              ['insert', ['link', 'picture', 'video']],
+              ['view', ['codeview', 'help']],
+          ],
+          fontNames: ['Helvetica', 'Verdana', 'Georgia', 'Arial', 'Times New Roman', 'Arial Black', 'Comic Sans MS', 'Merriweather', 'GT Walsheim Pro'],
+          addDefaultFonts: false,
+          fontSizeUnits: ['px'],
+      })
+  </script>
+  <script type="text/javascript">
+      $('#summernote4').summernote({
+          placeholder: 'Tarif...',
+          tabsize: 2,
+          height: 300,
+          toolbar: [
+              ['style', ['style']],
+              ['font', ['bold', 'underline', 'clear']],
+              ['fontname', ['fontname']],
+              ['fontsize', ['fontsize']],
+              ['height', ['height']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['table', ['table']],
+              ['insert', ['link', 'picture', 'video']],
+              ['view', ['codeview', 'help']],
+          ],
+          fontNames: ['Helvetica', 'Verdana', 'Georgia', 'Arial', 'Times New Roman', 'Arial Black', 'Comic Sans MS', 'Merriweather', 'GT Walsheim Pro'],
+          addDefaultFonts: false,
+          fontSizeUnits: ['px'],
+      })
+  </script>
+  <script type="text/javascript">
+      $('#summernote5').summernote({
+          placeholder: 'Tarif...',
+          tabsize: 2,
+          height: 300,
+          toolbar: [
+              ['style', ['style']],
+              ['font', ['bold', 'underline', 'clear']],
+              ['fontname', ['fontname']],
+              ['fontsize', ['fontsize']],
+              ['height', ['height']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['table', ['table']],
+              ['insert', ['link', 'picture', 'video']],
+              ['view', ['codeview', 'help']],
+          ],
+          fontNames: ['Helvetica', 'Verdana', 'Georgia', 'Arial', 'Times New Roman', 'Arial Black', 'Comic Sans MS', 'Merriweather', 'GT Walsheim Pro'],
+          addDefaultFonts: false,
+          fontSizeUnits: ['px'],
+      })
+  </script>
+  <script type="text/javascript">
+      $('#summernote6').summernote({
+          placeholder: 'Tarif...',
+          tabsize: 2,
+          height: 300,
+          toolbar: [
+              ['style', ['style']],
+              ['font', ['bold', 'underline', 'clear']],
+              ['fontname', ['fontname']],
+              ['fontsize', ['fontsize']],
+              ['height', ['height']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['table', ['table']],
+              ['insert', ['link', 'picture', 'video']],
+              ['view', ['codeview', 'help']],
+          ],
+          fontNames: ['Helvetica', 'Verdana', 'Georgia', 'Arial', 'Times New Roman', 'Arial Black', 'Comic Sans MS', 'Merriweather', 'GT Walsheim Pro'],
+          addDefaultFonts: false,
+          fontSizeUnits: ['px'],
+      })
+  </script>
 </body>
 
 </html>
