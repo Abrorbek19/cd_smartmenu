@@ -5,7 +5,9 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FeaturemainController;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\TariffController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TitleemainController;
 use App\Http\Controllers\UserController;
@@ -39,6 +41,8 @@ Route::middleware(['auth','role:admin'])->prefix('/admin')->group(function () {
     Route::resource("/restaurants", RestaurantController::class);
     Route::resource("/users", UserController::class);
     Route::resource('/clients', ClientController::class);
+    Route::resource('/tariffs', TariffController::class);
+    Route::resource('/payments', PaymentController::class);
     Route::resource('/titlemains', TitleemainController::class);
     Route::resource('/featuremains', FeaturemainController::class);
     Route::resource('/testimonial',TestimonialController::class);
@@ -52,5 +56,6 @@ Route::middleware(['auth','role:client|admin'])->prefix('/admin')->group(functio
     Route::resource('/categories', CategoryController::class);
     Route::resource('/meals', MealController::class);
     Route::resource('/users', UserController::class)->only('update');
+    Route::resource('/payments', PaymentController::class)->only("index","show");
 });
 

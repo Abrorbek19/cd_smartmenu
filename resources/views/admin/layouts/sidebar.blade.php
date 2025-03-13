@@ -29,6 +29,18 @@
                 <span>Mijozlar</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/tariffs') ? '' : 'collapsed' }}" href="{{route("tariffs.index")}}">
+                <i class="bi bi-box-seam"></i>
+                <span>Tariflar</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/payments') ? '' : 'collapsed' }}" href="{{route("payments.index")}}">
+                <i class="bi bi-credit-card"></i>
+                <span>To'lovlar</span>
+            </a>
+        </li>
 
         <li class="nav-heading">Bizning vebsayt ma'lumotlari</li>
 
@@ -67,6 +79,12 @@
             <a class="nav-link {{ request()->is('admin/meals') ? '' : 'collapsed' }}" href="{{route("meals.index")}}">
                 <i class="bi bi-egg-fried"></i>
                 <span>Taomlar</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/payments') ? '' : 'collapsed' }}" href="{{route("payments.index")}}">
+                <i class="bi bi-credit-card"></i>
+                <span>To'lovlar</span>
             </a>
         </li>
 
