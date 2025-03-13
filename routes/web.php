@@ -51,5 +51,6 @@ Route::middleware(['auth','role:client|admin'])->prefix('/admin')->group(functio
     Route::get('/profile', [Controller::class, "profile"])->name("profile");
     Route::resource('/categories', CategoryController::class);
     Route::resource('/meals', MealController::class);
+    Route::resource('/users', UserController::class)->only('update');
 });
 

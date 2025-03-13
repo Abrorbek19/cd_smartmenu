@@ -1,3 +1,4 @@
+@php use App\Enums\Status; @endphp
 @extends("admin.layouts.header")
 
 @section('content')
@@ -10,7 +11,8 @@
                         <i class="ri-add-box-fill"></i> Kategoriya qo'shish
                     </a>
                 </button>
-            </div><br>
+            </div>
+            <br>
             <table class="table datatable">
                 <thead>
                 <tr>
@@ -25,9 +27,10 @@
                     <tr>
                         <th scope="row">{{ ++$loop->index }}</th>
                         <td>{{ $item->name_uz }}</td>
-                        <td>{{ $item->status == 1 ? 'Aktiv' : 'Aktiv emas' }}</td>
+                        <td>{{ $item->status == Status::ACTIVE->value ? 'Aktiv' : 'Aktiv emas' }}</td>
                         <td>
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example" style="gap: 10px">
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example"
+                                 style="gap: 10px">
                                 <!-- View Button -->
                                 <a href="{{ route('categories.show', $item->id) }}">
                                     <button type="button" class="btn btn-info btn-sm text-white">
@@ -41,7 +44,9 @@
                                     </button>
                                 </a>
                                 <!-- Delete Button -->
-                                <form action="{{ route('categories.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Bu kategoriyani oʻchirib tashlamoqchimisiz?');" style="display:inline-block;">
+                                <form action="{{ route('categories.destroy', $item->id) }}" method="POST"
+                                      onsubmit="return confirm('Bu kategoriyani oʻchirib tashlamoqchimisiz?');"
+                                      style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">

@@ -96,7 +96,7 @@
                         @foreach ($meals->where('status', Status::ACTIVE->value) as $meal)
                             <div class="col-md-4">
                                 <div class="dashboard-card">
-                                    <img class="card-image" src="{{ asset('/storage/meals/'. $meal->photo) }}"
+                                    <img class="card-image" src="{{ asset('meals/'. $meal->photo) }}"
                                          alt="{{ $meal->name_uz }}">
                                     <div class="card-detail">
                                         <h4>{{ $meal->name_uz }} <span>{{ $meal->price }} so'm</span></h4>
@@ -141,7 +141,7 @@
                         @foreach ($meals->where('status', Status::INACTIVE->value) as $meal)
                             <div class="col-md-4">
                                 <div class="dashboard-card">
-                                    <img class="card-image" src="{{ asset('/storage/meals/'. $meal->photo) }}"
+                                    <img class="card-image" src="{{ asset('meals/'. $meal->photo) }}"
                                          alt="{{ $meal->name_uz }}">
                                     <div class="card-detail">
                                         <h4>{{ $meal->name_uz }} <span>{{ $meal->price }} so'm</span></h4>

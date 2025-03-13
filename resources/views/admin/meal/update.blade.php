@@ -1,3 +1,4 @@
+@php use App\Enums\Status; @endphp
 @extends("admin.layouts.header")
 
 @section('content')
@@ -5,8 +6,10 @@
         <div class="card-body">
             <div class="card-header">
                 <h2>Tahrirlash</h2>
-            </div><br>
-            <form class="row g-3" action="{{ route('meals.update', $meal->id) }}" method="POST" enctype="multipart/form-data">
+            </div>
+            <br>
+            <form class="row g-3" action="{{ route('meals.update', $meal->id) }}" method="POST"
+                  enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="col-6">
@@ -14,7 +17,8 @@
                         <select class="form-select" id="floatingSelect" aria-label="Kategoriya" name="category_id">
                             <option value="" disabled>Select a category</option>
                             @foreach($categories as $category)
-                                <option value="{{ $category->id }}"{{ old('category_id', $meal->category_id) == $category->id ? 'selected' : '' }}>{{ $category->name_uz }}</option>
+                                <option
+                                    value="{{ $category->id }}"{{ old('category_id', $meal->category_id) == $category->id ? 'selected' : '' }}>{{ $category->name_uz }}</option>
                             @endforeach
                         </select>
                         <label for="floatingSelect">Kategoriya</label>
@@ -27,8 +31,12 @@
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelectStatus" aria-label="Status" name="status">
                             <option value="" disabled>Status</option>
-                            <option value="1" {{ old('status', $meal->status) == 1 ? 'selected' : '' }}>Aktiv</option>
-                            <option value="0" {{ old('status', $meal->status) == 0 ? 'selected' : '' }}>Aktiv emas</option>
+                            <option
+                                value="100" {{ old('status', $meal->status) == Status::ACTIVE->value ? 'selected' : '' }}>
+                                Aktiv
+                            </option>
+                            <option value="200" {{ old('status', $meal->status) == Status::INACTIVE->value ? 'selected' : '' }}>Aktiv emas
+                            </option>
                         </select>
                         <label for="floatingSelectStatus">Status</label>
                     </div>
@@ -40,7 +48,8 @@
 
                 <div class="col-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingName" name="name_uz" value="{{ old('name_uz', $meal->name_uz) }}">
+                        <input type="text" class="form-control" id="floatingName" name="name_uz"
+                               value="{{ old('name_uz', $meal->name_uz) }}">
                         <label for="floatingName">Nomi(uz)</label>
                     </div>
                     @error('name_uz')
@@ -50,7 +59,8 @@
 
                 <div class="col-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingName" name="name_ru" value="{{ old('name_ru', $meal->name_ru) }}">
+                        <input type="text" class="form-control" id="floatingName" name="name_ru"
+                               value="{{ old('name_ru', $meal->name_ru) }}">
                         <label for="floatingName">Nomi(ru)</label>
                     </div>
                     @error('name_ru')
@@ -60,7 +70,8 @@
 
                 <div class="col-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingName" name="name_en" value="{{ old('name_en', $meal->name_en) }}">
+                        <input type="text" class="form-control" id="floatingName" name="name_en"
+                               value="{{ old('name_en', $meal->name_en) }}">
                         <label for="floatingName">Nomi(en)</label>
                     </div>
                     @error('name_en')
@@ -69,10 +80,10 @@
                 </div>
 
 
-
                 <div class="col-4">
                     <div class="form-floating">
-                        <textarea class="form-control" id="floatingName" style="height: 100px;" name="description_uz">{{ old('description_uz', $meal->description_uz) }}</textarea>
+                        <textarea class="form-control" id="floatingName" style="height: 100px;"
+                                  name="description_uz">{{ old('description_uz', $meal->description_uz) }}</textarea>
                         <label for="floatingName">Tavsif(uz)</label>
                     </div>
                     @error('description_uz')
@@ -82,7 +93,8 @@
 
                 <div class="col-4">
                     <div class="form-floating">
-                        <textarea class="form-control" id="floatingName" style="height: 100px;" name="description_ru">{{ old('description_ru', $meal->description_ru) }}</textarea>
+                        <textarea class="form-control" id="floatingName" style="height: 100px;"
+                                  name="description_ru">{{ old('description_ru', $meal->description_ru) }}</textarea>
                         <label for="floatingName">Tavsif(ru)</label>
                     </div>
                     @error('description_ru')
@@ -92,7 +104,8 @@
 
                 <div class="col-4">
                     <div class="form-floating">
-                        <textarea class="form-control" id="floatingName" style="height: 100px;" name="description_en">{{ old('description_en', $meal->description_en) }}</textarea>
+                        <textarea class="form-control" id="floatingName" style="height: 100px;"
+                                  name="description_en">{{ old('description_en', $meal->description_en) }}</textarea>
                         <label for="floatingName">Tavsif(en)</label>
                     </div>
                     @error('description_en')
@@ -102,7 +115,8 @@
 
                 <div class="col-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingName" name="price" value="{{ old('price', $meal->price) }}">
+                        <input type="text" class="form-control" id="floatingName" name="price"
+                               value="{{ old('price', $meal->price) }}">
                         <label for="floatingName">Narxi</label>
                     </div>
                     @error('price')
@@ -112,7 +126,8 @@
 
                 <div class="col-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingName" name="weight" value="{{ old('weight', $meal->weight) }}">
+                        <input type="text" class="form-control" id="floatingName" name="weight"
+                               value="{{ old('weight', $meal->weight) }}">
                         <label for="floatingName">Og'irligi</label>
                     </div>
                     @error('weight')
@@ -122,7 +137,8 @@
 
                 <div class="col-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingName" name="time" value="{{ old('time', $meal->time) }}">
+                        <input type="text" class="form-control" id="floatingName" name="time"
+                               value="{{ old('time', $meal->time) }}">
                         <label for="floatingName">Tayyorlanish vaqti</label>
                     </div>
                     @error('time')
@@ -131,7 +147,8 @@
                 </div>
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="file" class="form-control" id="photoInput" name="photo" accept="image/*" onchange="previewImage(event)">
+                        <input type="file" class="form-control" id="photoInput" name="photo" accept="image/*"
+                               onchange="previewImage(event)">
                         <label for="photoInput">Rasmi</label>
                     </div>
                     <br><br>
@@ -140,7 +157,8 @@
                         @if($meal->photo)
                             <div class="col-md-6">
                                 <p>Joriy rasm:</p>
-                                <img src="{{ asset('/storage/meals/' . $meal->photo) }}" alt="Meal Photo" width="200px" class="img-thumbnail mt-1">
+                                <img src="{{ asset('meals/' . $meal->photo) }}" alt="Meal Photo" width="200px"
+                                     class="img-thumbnail mt-1">
                             </div>
                         @endif
 
@@ -154,7 +172,6 @@
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
-
 
 
                 <!-- Submit button -->
@@ -175,7 +192,7 @@
                     if (file) {
                         const reader = new FileReader();
 
-                        reader.onload = function(e) {
+                        reader.onload = function (e) {
                             imagePreview.src = e.target.result; // Set the image preview source
                             previewContainer.style.display = 'block'; // Show the preview container
                         };

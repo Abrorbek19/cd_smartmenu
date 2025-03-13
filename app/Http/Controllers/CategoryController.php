@@ -30,14 +30,12 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $client = Client::where('user_id', auth()->id())->first();
-//        return $client;
-//        return $request->all();
         Category::create([
             'client_id' => $client->id,
             'name_uz' => $request->name_uz,
             'name_ru' => $request->name_ru,
             'name_en' => $request->name_en,
-            'status' => Status::ACTIVE,
+            'status' => Status::ACTIVE->value,
         ]);
 
         return redirect()->route('categories.index')->with('success', 'Category created successfully');
