@@ -1,3 +1,4 @@
+@php use App\Enums\Status; @endphp
 @extends("admin.layouts.header")
 
 @section('content')
@@ -6,7 +7,8 @@
         <div class="card">
             <div class="card-header">
                 <h2>Batafsil</h2>
-            </div><br>
+            </div>
+            <br>
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-md-4"><strong>Nomi(uz):</strong></div>
@@ -46,13 +48,13 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-4"><strong>Statusi:</strong></div>
-                    <div class="col-md-8">{{ $meal->status == 1 ? 'Aktiv' : 'Aktiv emas' }} </div>
+                    <div class="col-md-8">{{ $meal->status == Status::ACTIVE->value ? 'Aktiv' : 'Aktiv emas' }} </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-4"><strong>Rasmi:</strong></div>
                     <div class="col-md-8">
                         @if($meal->photo)
-                            <img src="{{ asset('/storage/meals/'. $meal->photo) }}" alt="Meal Image" width="200px">
+                            <img src="{{ asset('/meals/'. $meal->photo) }}" alt="Meal Image" width="200px">
                         @else
                             <p>Rasm mavjud emas</p>
                         @endif
@@ -65,7 +67,10 @@
                 <form action="{{ route('meals.destroy', $meal->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Haqiqatan ham bu taomni oʻchirib tashlamoqchimisiz?');"><i class="ri-delete-bin-line"></i>O'chirish</button>
+                    <button type="submit" class="btn btn-danger"
+                            onclick="return confirm('Haqiqatan ham bu taomni oʻchirib tashlamoqchimisiz?');"><i
+                            class="ri-delete-bin-line"></i>O'chirish
+                    </button>
                 </form>
             </div>
         </div>

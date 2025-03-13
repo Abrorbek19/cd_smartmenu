@@ -1,3 +1,4 @@
+@php use App\Enums\Status; @endphp
 @extends('admin.layouts.header')
 
 @section('content')
@@ -5,7 +6,8 @@
     <div class="card">
         <div class="card-header">
             <h2>Tahrirlash</h2>
-        </div><br>
+        </div>
+        <br>
         <div class="card-body">
             <!-- Vertical Form -->
             <form class="row g-3" action="{{ route('categories.update', $category->id) }}" method="POST">
@@ -14,8 +16,10 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <select class="form-control" id="floatingStatus" name="status">
-                            <option value="0" {{ old('status', $category->status) == 0 ? 'selected' : '' }}>Aktiv emas</option>
-                            <option value="1" {{ old('status', $category->status) == 1 ? 'selected' : '' }}>Aktiv</option>
+                            <option
+                                value="200" {{ old('status', $category->status) == Status::INACTIVE->value ? 'selected' : '' }}>Aktiv emas</option>
+                            <option
+                                value="100" {{ old('status', $category->status) == Status::ACTIVE->value ? 'selected' : '' }}>Aktiv</option>
                         </select>
                         <label for="floatingStatus">Status</label>
                     </div>
@@ -25,7 +29,8 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingName" name="name_uz" value="{{ $category->name_uz }} ">
+                        <input type="text" class="form-control" id="floatingName" name="name_uz"
+                               value="{{ $category->name_uz }} ">
                         <label for="floatingName">Nomi(uz)</label>
                     </div>
                     @error('name_uz')
@@ -34,7 +39,8 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingName" name="name_ru" value="{{ $category->name_ru }} ">
+                        <input type="text" class="form-control" id="floatingName" name="name_ru"
+                               value="{{ $category->name_ru }} ">
                         <label for="floatingName">Nomi(ru)</label>
                     </div>
                     @error('name_ru')
@@ -43,7 +49,8 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingName" name="name_en" value="{{ $category->name_en }} ">
+                        <input type="text" class="form-control" id="floatingName" name="name_en"
+                               value="{{ $category->name_en }} ">
                         <label for="floatingName">Nomi(en)</label>
                     </div>
                     @error('name_en')

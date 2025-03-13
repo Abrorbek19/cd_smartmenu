@@ -27,6 +27,7 @@ class MealController extends Controller
     {
         $client = Client::where('user_id', auth()->id())->first();
 
+
         $categories = Category::where('client_id', $client->id)
             ->orderBy('id', 'asc')
             ->get();

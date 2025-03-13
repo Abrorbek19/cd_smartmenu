@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("name_uz");
             $table->string("name_ru");
             $table->string("name_en");
-            $table->integer("status")->default(Status::ACTIVE);
+            $table->integer("status")->default(Status::ACTIVE->value);
             $table->foreignId("client_id")->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
