@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FeaturemainController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RestaurantController;
@@ -30,12 +31,19 @@ Route::get('lang/{lang}', function($lang) {
     return back() ;
 })->name('lang');
 
+
+
+// All the endpoints that no required authentication
 Route::get('/',[ViewController::class,'index'])->name('index');
 Route::get('/restaran/{id}',[ViewController::class,'menu'])->middleware('counter')->name('menu');
+Route::post('/feedback-store',[FeedbackController::class,'store'])->name('feedback-store');
+
+// All the endpoints that related to authorization
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login-post',[AuthController::class,'loginPost'])->name('login-post');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
+// All the endpoints for only admin role users
 Route::middleware(['auth','role:admin'])->prefix('/admin')->group(function () {
     Route::get('/dashboard', [Controller::class, "index"])->name("dashboard");
     Route::resource("/restaurants", RestaurantController::class);
@@ -50,6 +58,7 @@ Route::middleware(['auth','role:admin'])->prefix('/admin')->group(function () {
 
 });
 
+// All the endpoints for admin and client role users
 Route::middleware(['auth','role:client|admin'])->prefix('/admin')->group(function () {
     Route::get('/dashboard', [Controller::class, "index"])->name("dashboard");
     Route::get('/profile', [Controller::class, "profile"])->name("profile");

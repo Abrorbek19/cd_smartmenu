@@ -24,9 +24,6 @@ class CategoryController extends Controller
         return view('admin.category.create', compact("clients"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreCategoryRequest $request)
     {
         $client = Client::where('user_id', auth()->id())->first();
