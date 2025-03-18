@@ -23,9 +23,6 @@ class TestimonialController extends Controller
     public function index()
     {
         $all_testimonial = Testimonial::with('restaurant')->get();
-
-//        return $all_testimonial;
-
         return view("main.testimonial.index", compact("all_testimonial"));
     }
 
@@ -67,7 +64,6 @@ class TestimonialController extends Controller
             return redirect()->route('testimonial.index')->with('success', 'Testimonial created successfully.');
 
         } catch (\Exception $e) {
-            Log::error('Error creating feature: ' . $e->getMessage());
             return redirect()->route('testimonial.index')->withErrors(['error' => 'Failed to create testimonial.']);
         }
     }
@@ -77,9 +73,7 @@ class TestimonialController extends Controller
      */
     public function show(Testimonial $testimonial)
     {
-//        return $testimonial;
         $show = Testimonial::where('id',$testimonial->id)->with('restaurant')->first();
-//        return $show;
         return view("main.testimonial.show", compact("show"));
     }
 
@@ -89,7 +83,6 @@ class TestimonialController extends Controller
     public function edit(Testimonial $testimonial)
     {
         $restarans = Restaurant::where('id',$testimonial->restaran_id)->get();
-//        return $restarans;
         return view("main.testimonial.update", compact("restarans",'testimonial'));
     }
 

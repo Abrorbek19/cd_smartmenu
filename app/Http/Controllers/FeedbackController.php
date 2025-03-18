@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class FeedbackController extends Controller
 {
-    /**
-     * Display a listing of the feedback.
-     */
     public function index()
     {
         $user = Auth::user();
@@ -22,37 +19,28 @@ class FeedbackController extends Controller
         if ($user->hasRole('admin')) {
             // If the user is an admin, show all feedbacks
             $feedbacks = Feedback::all();
-//            return $feedbacks;
         } else {
             // If the user is not an admin, show feedbacks associated with their restaurant
             $clients = Client::where('user_id', $user->id)->first();
             if ($clients) {
                 $feedbacks = Feedback::where('restaurant_id', $clients->restaurant_id)->get();
             } else {
-                $feedbacks = collect();  // Return an empty collection if no client is found
+                $feedbacks = collect();
             }
         }
 
         return  view('admin.feedback.index',compact('feedbacks'));
     }
 
-
-    /**
-     * Show the form for creating feedback.
-     */
     public function create()
     {
         return view('feedback.create');
     }
 
-    /**
-     * Store a newly created feedback in storage.
-     */
 
     public function store(StoreFeedbackRequest $request)
     {
         $validated = $request->validated();
-//        return $validated;
 
         // Prepare data for feedback insertion
         $data = [
@@ -61,11 +49,8 @@ class FeedbackController extends Controller
             'restaurant_text' => $validated['restaurant_text'] ?? null,
             'service_star' => $validated['service_star']?? null,
             'service_text' => $validated['service_text'] ?? null,
-            'status' => 1, // Default to 1 (active status)
+            'status' => 1,
         ];
-//        return $data;
-
-        \Log::debug('Data to insert into Feedback: ', $data);
 
         try {
             // Check if the restaurant exists
@@ -76,45 +61,28 @@ class FeedbackController extends Controller
             // Insert feedback data
             $feedback = Feedback::create($data);
 
-//            return $feedback;
-
             // Check if the feedback was created successfully
             if ($feedback) {
-                \Log::debug('Feedback inserted successfully:', $feedback->toArray());
                 return back()->with('success', 'Feedback created successfully!');
             } else {
-                \Log::error('Failed to insert feedback');
                 return back()->with('error', 'Failed to create feedback.');
             }
         } catch (\Exception $e) {
-//            \Log::error('Failed to create feedback: ' . $e->getMessage());
             return back()->with('error', 'Failed to create feedback.');
         }
     }
 
-
-    /**
-     * Display the specified feedback.
-     */
     public function show(Feedback $feedback)
     {
-
         $feedback->update(['status'=>2]);
-//        return $feedback;
         return view('admin.feedback.show', compact('feedback'));
     }
 
-    /**
-     * Show the form for editing the specified feedback.
-     */
     public function edit(Feedback $feedback)
     {
         return view('feedback.edit', compact('feedback'));
     }
 
-    /**
-     * Update the specified feedback in storage.
-     */
     public function update(UpdateFeedbackRequest $request, Feedback $feedback)
     {
         $feedback->update($request->validated());
@@ -122,9 +90,6 @@ class FeedbackController extends Controller
         return redirect()->route('feedback.index')->with('success', 'Feedback updated successfully!');
     }
 
-    /**
-     * Remove the specified feedback from storage.
-     */
     public function destroy(Feedback $feedback)
     {
         $feedback->delete();

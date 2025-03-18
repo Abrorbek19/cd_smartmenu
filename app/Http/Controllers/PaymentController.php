@@ -45,8 +45,6 @@ class PaymentController extends Controller
         return view("admin.payment.index", compact("payments"));
     }
 
-
-
     /**
      * Show the form for creating a new resource.
      */

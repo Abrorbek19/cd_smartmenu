@@ -18,7 +18,6 @@ class ClientController extends Controller
 
     public function create()
     {
-
         $connectedUserIds = Client::pluck('user_id')->toArray();
         $connectedRestaurantIds = Client::pluck('restaurant_id')->toArray();
 
@@ -47,7 +46,6 @@ class ClientController extends Controller
 
     public function edit(Client $client)
     {
-
         $users = User::all();
         $restaurants = Restaurant::all();
         return view('admin.client.update', compact('client', 'users', 'restaurants'));
