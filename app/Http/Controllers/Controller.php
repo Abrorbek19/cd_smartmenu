@@ -87,7 +87,7 @@ class Controller extends BaseController
 
 //        return $restaran_star;
 
-//        return $feedback;
+
 
 
         return view("admin.layouts.dashboard",compact("breadcrumbs",'monthlyStats','averageRestaurantStar','averageServiceStar',"user",'oylik','haftalik','kunlik'));
