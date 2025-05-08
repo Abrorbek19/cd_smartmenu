@@ -51,6 +51,15 @@
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingName" name="location" value="{{ old('location', $restaurant->location) }}">
+                        <label for="floatingName">E manzil</label>
+                    </div>
+                    @error('location')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="floatingName" name="address_uz" value="{{ old('address_uz', $restaurant->address_uz) }}">
@@ -119,6 +128,15 @@
                         <label for="floatingName">Telegram</label>
                     </div>
                     @error('telegram')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingName" name="channel_id" value="{{ old('channel_id', $restaurant->channel_id) }}">
+                        <label for="floatingName">Telegram kanal id</label>
+                    </div>
+                    @error('channel_id')
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>

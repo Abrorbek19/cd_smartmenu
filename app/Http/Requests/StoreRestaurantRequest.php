@@ -43,6 +43,7 @@ class StoreRestaurantRequest extends FormRequest
             'start_work_day_en' => 'required|string|max:255',
             'end_work_day_en' => 'required|string|max:255',
             'status' => 'nullable|integer',
+            'location' => 'nullable|string|max:255',
         ];
     }
 

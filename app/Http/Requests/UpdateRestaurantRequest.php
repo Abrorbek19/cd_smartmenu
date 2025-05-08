@@ -44,6 +44,8 @@ class UpdateRestaurantRequest extends FormRequest
             'end_work_day_en' => 'required|string|max:5',
             'status' => 'nullable|integer',
             'delivery_time' => 'nullable|string',
+            'location' => 'nullable|string|max:255',
+
         ];
     }
 }

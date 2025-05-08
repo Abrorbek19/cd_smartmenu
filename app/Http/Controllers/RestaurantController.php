@@ -55,6 +55,8 @@ class RestaurantController extends Controller
             $restaurant->work_time_start = $data['work_time_start'];
             $restaurant->work_time_end = $data['work_time_end'];
             $restaurant->tax = $data['tax'];
+            $restaurant->location = $data['location'] ?? null;
+            $restaurant->channel_id = $data['channel_id'] ?? null;
 
 
             if ($request->hasFile('logo')) {
