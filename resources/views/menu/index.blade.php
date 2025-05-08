@@ -170,6 +170,18 @@
                     </div>
                 @endif
             </div>
+            @if($restaurant->location)
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 16px; text-align: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
+                    <a href="{{ $restaurant->location }}"
+                       class="btn btn-outline-primary d-inline-flex align-items-center gap-2"
+                       target="_blank"
+                       style="border-radius: 12px; padding: 10px 20px; font-weight: 500; transition: 0.3s;">
+                        <i class="fa-solid fa-route"></i> @lang('menu.location')
+                    </a>
+                </div>
+            @endif
+
+
             <div>
                 @if($restaurant->instagram)
                     <a class="btn btn-instagram" target="_blank" href="{{$restaurant->instagram}}"><i
@@ -187,6 +199,8 @@
                     <a href="{{$restaurant->tiktok}}" class="btn tiktok-button" target="_blank"><i
                             class="fa-brands fa-tiktok"></i> TikTok</a>
                 @endif
+
+
             </div>
         </div>
     </div>

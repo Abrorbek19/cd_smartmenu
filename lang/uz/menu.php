@@ -35,5 +35,8 @@ return
     'naqd'=>"Naqd pul",
 
     'dostavka'=>'Yetkazib berish vaqti',
+
+
+    'location'=>'Yo‘nalishni qurish',
 ]
 ?>

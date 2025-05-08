@@ -34,5 +34,7 @@ return
     'cash'=>"Cash",
 
     'dostavka'=>'Delivery time',
+
+    'location'=>'Build Route',
 ]
 ?>
