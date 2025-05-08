@@ -33,8 +33,9 @@ return new class extends Migration
             $table->string("start_work_day_en");
             $table->string("end_work_day_en");
             $table->integer("status")->default(0);
+            $table->string('channel_id')->nullable();
+            $table->text('location')->nullable();
             $table->timestamps();
-
         });
     }
 
