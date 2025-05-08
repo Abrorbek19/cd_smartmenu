@@ -9,6 +9,9 @@ use App\Models\Featuremain;
 use App\Models\Restaurant;
 use App\Models\Testimonial;
 use App\Models\Titleemain;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 
 class ViewController extends Controller
@@ -40,5 +43,79 @@ class ViewController extends Controller
         }
 
         return view('menu.index', compact( 'restaurant', 'client',"categories",'id'));
+    }
+
+
+    public function sendTelegram(Request $request)
+    {
+        function escapeMarkdown($text) {
+            $replace = [
+                '*' => '\\*',
+                '_' => '\\_',
+                '[' => '\\[',
+                ']' => '\\]',
+                '(' => '\\(',
+                ')' => '\\)',
+                '~' => '\\~',
+                '`' => '\\`',
+                '>' => '\\>',
+                '#' => '\\#',
+                '+' => '\\+',
+                '-' => '\\-',
+                '=' => '\\=',
+                '|' => '\\|',
+                '{' => '\\{',
+                '}' => '\\}',
+                '.' => '\\.',
+                '!' => '\\!',
+            ];
+            return strtr($text, $replace);
+        }
+
+        // Xabarni olish va escape qilish
+        $message = $request->input('message');
+        $escapedMessage = escapeMarkdown($message);
+
+        $restaran_id = $request->input('restaran_id');
+        $restaran = Restaurant::where('id', $restaran_id)->first();
+
+        if (!$restaran) {
+            return response()->json(['success' => false, 'error' => 'Restoran topilmadi']);
+        }
+
+        $telegramBotToken = '7638355691:AAF-7fuCCQsFe1d1xGxlEsxffcLoqrXYmew';
+        $group_id = $restaran->channel_id;
+
+        $url = "https://api.telegram.org/bot{$telegramBotToken}/sendMessage";
+        $data = [
+            'chat_id' => $group_id,
+            'text' => $escapedMessage,
+            'parse_mode' => 'Markdown',
+        ];
+
+        try {
+            $response = Http::post($url, $data);
+
+            if ($response->successful()) {
+                return response()->json(['success' => true]);
+            } else {
+                Log::error('Telegram API javobi muvaffaqiyatsiz', [
+                    'status' => $response->status(),
+                    'body' => $response->body()
+                ]);
+                return response()->json([
+                    'success' => false,
+                    'error' => 'Telegram API javobi muvaffaqiyatsiz',
+                    'response' => $response->json()
+                ]);
+            }
+        } catch (\Exception $e) {
+            Log::error('Telegram API ulanish xatosi', ['exception' => $e->getMessage()]);
+            return response()->json([
+                'success' => false,
+                'error' => 'Telegram APIga ulanishda xatolik',
+                'exception' => $e->getMessage()
+            ]);
+        }
     }
 }

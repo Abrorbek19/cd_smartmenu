@@ -37,7 +37,7 @@ Route::get('lang/{lang}', function($lang) {
 Route::get('/',[ViewController::class,'index'])->name('index');
 Route::get('/restaran/{id}',[ViewController::class,'menu'])->middleware('counter')->name('menu');
 Route::post('/feedback-store',[FeedbackController::class,'store'])->name('feedback-store');
-
+Route::post('send-telegram',[ViewController::class,'sendTelegram'])->name('send-telegram');
 // All the endpoints that related to authorization
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login-post',[AuthController::class,'loginPost'])->name('login-post');

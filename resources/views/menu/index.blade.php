@@ -342,81 +342,81 @@
         </div>
     @endif
 
-    {{--    <form action="{{route('send-telegram')}}" method="POST" id="order-form">--}}
-    {{--    <div class="order-wrapper">--}}
-    {{--    </div>--}}
-    {{--    <input type="hidden" id="tax_cafe" value="{{$restaurant->tax}}">--}}
-    {{--    <div class="footer_order">--}}
-    {{--        <div class="order-total">--}}
-    {{--            <p>@lang('menu.buyurtma'): <span id="subtotal">0</span></p>--}}
-    {{--            <p>@lang('menu.tax') ({{$restaurant->tax}}%): <span id="tax">0</span></p>--}}
-    {{--            <p id="tax-line" style="display: none;">@lang('menu.tax') (<span id="tax-cafe">{{$restaurant->tax}}</span>%): <span id="tax">0</span></p>--}}
-    {{--            <hr class="divider">--}}
-    {{--            <p>@lang('menu.total'): <span id="total">0</span></p>--}}
-    {{--        </div>--}}
-    {{--        <div class="order-total">--}}
-    {{--            <div class="option">--}}
-    {{--                <label>@lang('menu.buyurtma_turi')</label>--}}
-    {{--            </div>--}}
-    {{--            <div class="option">--}}
-    {{--                <label>--}}
-    {{--                    <input type="checkbox" name="dostavka">--}}
-    {{--                    @lang('menu.yetkazib')--}}
-    {{--                </label>--}}
-    {{--            </div>--}}
-    {{--            <div class="option">--}}
-    {{--                <label>--}}
-    {{--                    <input type="checkbox" name="olib_ketish">--}}
-    {{--                    @lang('menu.olib_ketish')--}}
-    {{--                </label>--}}
-    {{--            </div>--}}
-    {{--            <div class="option">--}}
-    {{--                <label>--}}
-    {{--                    <input type="checkbox" name="zalda">--}}
-    {{--                    @lang('menu.zalda')--}}
-    {{--                </label>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
+        <form action="{{route('send-telegram')}}" method="POST" id="order-form">
+        <div class="order-wrapper">
+        </div>
+        <input type="hidden" id="tax_cafe" value="{{$restaurant->tax}}">
+        <div class="footer_order">
+            <div class="order-total">
+                <p>@lang('menu.buyurtma'): <span id="subtotal">0</span></p>
+                <p>@lang('menu.tax') ({{$restaurant->tax}}%): <span id="tax">0</span></p>
+                <p id="tax-line" style="display: none;">@lang('menu.tax') (<span id="tax-cafe">{{$restaurant->tax}}</span>%): <span id="tax">0</span></p>
+                <hr class="divider">
+                <p>@lang('menu.total'): <span id="total">0</span></p>
+            </div>
+            <div class="order-total">
+                <div class="option">
+                    <label>@lang('menu.buyurtma_turi')</label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="checkbox" name="dostavka">
+                        @lang('menu.yetkazib')
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="checkbox" name="olib_ketish">
+                        @lang('menu.olib_ketish')
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="checkbox" name="zalda">
+                        @lang('menu.zalda')
+                    </label>
+                </div>
+            </div>
 
-    {{--        <div class="order-total">--}}
-    {{--            <div class="option">--}}
-    {{--                <label>@lang('menu.pay')</label>--}}
-    {{--            </div>--}}
-    {{--            <div class="option">--}}
-    {{--                <label>--}}
-    {{--                    <input type="checkbox" name="click">--}}
-    {{--                    @lang('menu.click')--}}
-    {{--                </label>--}}
-    {{--            </div>--}}
-    {{--            <div class="option">--}}
-    {{--                <label>--}}
-    {{--                    <input type="checkbox" name="payme">--}}
-    {{--                    @lang('menu.payme')--}}
-    {{--                </label>--}}
-    {{--            </div>--}}
-    {{--            <div class="option">--}}
-    {{--                <label>--}}
-    {{--                    <input type="checkbox" name="naqd">--}}
-    {{--                    @lang('menu.naqd')--}}
-    {{--                </label>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
+            <div class="order-total">
+                <div class="option">
+                    <label>@lang('menu.pay')</label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="checkbox" name="click">
+                        @lang('menu.click')
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="checkbox" name="payme">
+                        @lang('menu.payme')
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="checkbox" name="naqd">
+                        @lang('menu.cash')
+                    </label>
+                </div>
+            </div>
 
-    {{--        <div class="order-total">--}}
-    {{--            <input type="hidden" name="restaran_id" id="restaran_ids" value="{{$restaurant->id}}">--}}
-    {{--            <label>--}}
-    {{--                <input type="text" name="fullname" id="fullname" placeholder="@lang('form.ism')" required>--}}
-    {{--            </label>--}}
-    {{--            <label>--}}
-    {{--                <input type="tel" name="number" id="number" placeholder="@lang('form.telefon')...." required>--}}
-    {{--            </label>--}}
-    {{--            <label id="address-label" style="display: none;">--}}
-    {{--                <input type="text" name="address" id="address" placeholder="@lang('form.manzil')" />--}}
-    {{--            </label>--}}
-    {{--        </div>--}}
-    {{--        <button class="checkout">@lang('menu.confirm')</button>--}}
-    {{--    </div>--}}
-    {{--    </form>--}}
+            <div class="order-total">
+                <input type="hidden" name="restaran_id" id="restaran_ids" value="{{$restaurant->id}}">
+                <label>
+                    <input type="text" name="fullname" id="fullname" placeholder="@lang('form.ism')" required>
+                </label>
+                <label>
+                    <input type="tel" name="number" id="number" placeholder="@lang('form.telefon')...." required>
+                </label>
+                <label id="address-label" style="display: none;">
+                    <input type="text" name="address" id="address" placeholder="@lang('form.manzil')" />
+                </label>
+            </div>
+            <button class="checkout">@lang('menu.confirm')</button>
+        </div>
+        </form>
 </div>
 
 
@@ -887,56 +887,56 @@ Yig'indi:${formattedSubtotal} UZS
 Xizmat haqqi:(${taxRateDisplay}%): ${formattedTax} UZS
 Jami narx:${formattedTotal} UZS
 `;
-        {{--    // Telegramga yuborish--}}
-        {{--    fetch("{{ route('send-telegram') }}", {--}}
-        {{--        method: "POST",--}}
-        {{--        headers: {--}}
-        {{--            'Content-Type': 'application/json',--}}
-        {{--            'X-CSRF-TOKEN': "{{ csrf_token() }}"--}}
-        {{--        },--}}
-        {{--        body: JSON.stringify({--}}
-        {{--            message: telegramMessage,--}}
-        {{--            restaran_id: document.getElementById('restaran_ids').value,--}}
-        {{--        })--}}
-        {{--    })--}}
-        {{--        .then(response => response.json())--}}
-        {{--        .then(data => {--}}
-        {{--            console.log(data)--}}
-        {{--            if (data.success) {--}}
-        {{--                alert(messages.success[currentLang]); // Muvaffaqiyatli xabar--}}
-        {{--                window.location.reload(); // Sahifani qayta yuklash--}}
-        {{--            } else {--}}
-        {{--                alert(`${messages.error[currentLang]} ${data.error || ''}`); // Xato xabari--}}
-        {{--            }--}}
-        {{--        })--}}
-        {{--        .catch(error => {--}}
-        {{--            console.error('Error sending order:', error); // Konsolda xato--}}
-        {{--            alert(messages.systemError[currentLang]); // Tizim xatolik xabari--}}
-        {{--        });--}}
-        {{--});--}}
-        {{--    function escapeMarkdown(text) {--}}
-        {{--        const replace = {--}}
-        {{--            '*': '\\*',--}}
-        {{--            '_': '\\_',--}}
-        {{--            '[': '\\[',--}}
-        {{--            ']': '\\]',--}}
-        {{--            '(': '\\(',--}}
-        {{--            ')': '\\)',--}}
-        {{--            '~': '\\~',--}}
-        {{--            '`': '\\`',--}}
-        {{--            '>': '\\>',--}}
-        {{--            '#': '\\#',--}}
-        {{--            '+': '\\+',--}}
-        {{--            '-': '\\-',--}}
-        {{--            '=': '\\=',--}}
-        {{--            '|': '\\|',--}}
-        {{--            '{': '\\{',--}}
-        {{--            '}': '\\}',--}}
-        {{--            '.': '\\.',--}}
-        {{--            '!': '\\!'--}}
-        {{--        };--}}
-        {{--        return text.replace(/[*_~`>#\+\-=|{}.!]/g, match => replace[match]);--}}
-        {{--    }--}}
+            // Telegramga yuborish
+            fetch("{{ route('send-telegram') }}", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    message: telegramMessage,
+                    restaran_id: document.getElementById('restaran_ids').value,
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.success) {
+                        alert(messages.success[currentLang]); // Muvaffaqiyatli xabar
+                        window.location.reload(); // Sahifani qayta yuklash
+                    } else {
+                        alert(`${messages.error[currentLang]} ${data.error || ''}`); // Xato xabari
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending order:', error); // Konsolda xato
+                    alert(messages.systemError[currentLang]); // Tizim xatolik xabari
+                });
+        });
+            function escapeMarkdown(text) {
+                const replace = {
+                    '*': '\\*',
+                    '_': '\\_',
+                    '[': '\\[',
+                    ']': '\\]',
+                    '(': '\\(',
+                    ')': '\\)',
+                    '~': '\\~',
+                    '`': '\\`',
+                    '>': '\\>',
+                    '#': '\\#',
+                    '+': '\\+',
+                    '-': '\\-',
+                    '=': '\\=',
+                    '|': '\\|',
+                    '{': '\\{',
+                    '}': '\\}',
+                    '.': '\\.',
+                    '!': '\\!'
+                };
+                return text.replace(/[*_~`>#\+\-=|{}.!]/g, match => replace[match]);
+            }
         // Kategoriyalarni scroll qilish va aktiv qilish funksiyasi
         function scrollToActiveCategory() {
             const activeCategory = document.querySelector('.category-link.active'); // Aktiv kategoriya
