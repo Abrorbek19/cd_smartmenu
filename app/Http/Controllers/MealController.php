@@ -13,6 +13,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class MealController extends Controller
@@ -132,5 +133,40 @@ class MealController extends Controller
 
         $meal->delete();
         return redirect()->route('meals.index')->with('success', 'Meal deleted successfully.');
+    }
+
+
+    public function reorder(Request $request)
+    {
+        try {
+            // Laravel avtomatik JSONni arrayga aylantiradi
+            $meals = $request->input('meals');
+
+            if (!is_array($meals)) {
+                \Log::error('reorder() error: meals is not an array', ['meals' => $meals]);
+                return response()->json(['error' => 'Invalid format'], 400);
+            }
+
+            foreach ($meals as $data) {
+                \Log::info('Updating meal', $data); // bu debug uchun
+
+                // Validation (asosiy!)
+                if (!isset($data['id'], $data['category_id'], $data['order'])) {
+                    \Log::error('Missing meal data keys', $data);
+                    continue;
+                }
+
+                Meal::where('id', $data['id'])->update([
+                    'category_id' => $data['category_id'],
+                    'order' => $data['order'],
+                    'status' => $data['status'] ?? 1 // ✅ status ham yangilanmoqda
+                ]);
+            }
+
+            return response()->json(['status' => 'success']);
+        } catch (\Throwable $e) {
+            \Log::error('Meal reorder error: ' . $e->getMessage());
+            return response()->json(['error' => 'Xatolik yuz berdi'], 500);
+        }
     }
 }
