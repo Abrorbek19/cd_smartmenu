@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string("weight")->nullable();
             $table->string("time");
             $table->integer("status")->default(Status::ACTIVE);
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

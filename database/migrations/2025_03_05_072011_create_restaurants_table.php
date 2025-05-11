@@ -35,6 +35,7 @@ return new class extends Migration
             $table->integer("status")->default(0);
             $table->string('channel_id')->nullable();
             $table->text('location')->nullable();
+            $table->string('delivery_time')->nullable();
             $table->timestamps();
         });
     }

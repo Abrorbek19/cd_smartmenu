@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("name_en");
             $table->integer("status")->default(Status::ACTIVE->value);
             $table->foreignId("client_id")->constrained()->cascadeOnDelete();
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }
