@@ -43,6 +43,10 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login-post',[AuthController::class,'loginPost'])->name('login-post');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
+
+Route::post('/meals/reorder', [MealController::class, 'reorder'])->name('meals.reorder');
+Route::post('/categories/reorder', [CategoryController::class, 'reorder'])->name('categories.reorder');
+
 // All the endpoints for only admin role users
 Route::middleware(['auth','role:admin'])->prefix('/admin')->group(function () {
     Route::get('/dashboard', [Controller::class, "index"])->name("dashboard");

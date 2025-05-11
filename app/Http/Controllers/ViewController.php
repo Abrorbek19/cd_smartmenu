@@ -35,7 +35,7 @@ class ViewController extends Controller
         $client = Client::where('restaurant_id', $restaurant->id)->with(['user','restaurant'])->first();
         $categories = Category::where('client_id', $id)
             ->where('status', Status::ACTIVE->value)
-            ->orderBy('id','asc')
+            ->orderBy('order','asc')
             ->get();
 
         if (!$client) {
