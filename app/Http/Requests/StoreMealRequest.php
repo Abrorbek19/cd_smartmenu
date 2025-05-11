@@ -34,6 +34,7 @@ class StoreMealRequest extends FormRequest
             'weight' => 'nullable|string|max:255',
             'time' => 'required|string|max:255',
             'status' => 'nullable|integer',
+            'order' => 'nullable|integer|max:255',
         ];
     }
 

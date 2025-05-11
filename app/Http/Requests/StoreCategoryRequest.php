@@ -25,6 +25,7 @@ class StoreCategoryRequest extends FormRequest
             'name_uz' => 'required|string|max:255',
             'name_ru' => 'required|string|max:255',
             'name_en' => 'required|string|max:255',
+            'order' => 'nullable|integer|max:255',
         ];
     }
 }
